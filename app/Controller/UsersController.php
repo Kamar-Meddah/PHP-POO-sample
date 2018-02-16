@@ -18,7 +18,7 @@ class UsersController extends AppController
         if($auth->logged())
         {
                 App::getInstance()->getflash()->setFlash('Votre etes déja connecter','warning');
-                header("location:index.php?p=admin.home.index");
+                header("location:?p=admin.home.index");
         }
 
         if(!empty($_POST))
@@ -26,11 +26,11 @@ class UsersController extends AppController
             if($auth->login($_POST['username'],$_POST['password']))
             {
                App::getInstance()->getflash()->setFlash('Vous etes connecter a l\'administration','success');
-               header("location:index.php?p=admin.home.index");
+               header("location:?p=admin.home.index");
             }else
                 {
                    App::getInstance()->getflash()->setFlash('Identifiant incorrect','danger');
-                   header("location:index.php?p=users.login");
+                   header("location:?p=users.login");
                 }
         }
          return $this->render('users.login',compact("auth","l","error"));
@@ -39,7 +39,7 @@ class UsersController extends AppController
     public function logout()
     {
         App::getInstance()->getauth()->logout();
-        header("location:index.php");
+        header("location:/");
     }
 
 }

@@ -30,7 +30,7 @@ class CategoriesController extends AppController
                                   if($result)
                                   {
                                     App::getInstance()->getflash()->setFlash('Votre Categorie a été ajouté','success');
-                                    header("location:index.php?p=admin.categories.edit&id=".App::getInstance()->getdb()->lastInsertId());
+                                    header("location:?p=admin.categories.edit&id=".App::getInstance()->getdb()->lastInsertId());
                                   }
         }
         $categories=$this->categories->extract("id","titre");
@@ -54,7 +54,7 @@ class CategoriesController extends AppController
                                   if($result)
                                   {
                                       App::getInstance()->getflash()->setFlash('Votre Categorie a été mise a jour','success');
-                                      header("location:index.php?p=admin.categories.edit&id=".$_GET['id']);
+                                      header("location:?p=admin.categories.edit&id=".$_GET['id']);
                                   }
         }
         return $this->render('admin.categories.edit',compact("l","result","categories","post"));
@@ -69,7 +69,7 @@ class CategoriesController extends AppController
           $this->articles->deletekey($_POST['id']);
           $result=$this->categories->delete($_POST['id']);
           App::getInstance()->getflash()->setFlash('Votre Categorie a été Supprimer','danger');
-          header("location:index.php?p=admin.categories.index");
+          header("location:?p=admin.categories.index");
         }
     }
 

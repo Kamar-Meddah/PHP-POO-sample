@@ -71,10 +71,10 @@ class Form {
      * @param  $name string
      * @param  $label
     **/
-    public function textarea($name, $label = "")
+    public function textarea($name, $label = "", $id=null)
     {
         $return= "<div class='form-group'><label>$label</label>";
-        $return.="<textarea type='text' class='form-control control' id='$name' name='$name' >{$this->getvalue($name)}</textarea></div>";
+        $return.="<textarea type='text' class='form-control control' id='$id' name='$name' >{$this->getvalue($name)}</textarea></div>";
         return $return;
     }
 

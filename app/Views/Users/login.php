@@ -1,5 +1,5 @@
 <?php \med\app\App::getInstance()->titre='Login'; ?>
-<form method="post" action="#"  class="form-signin">
+<form method="post" class="form-signin">
 
     <div class="container col-sm-8">
             <h2 class="form-signin-heading">Please sign in</h2>

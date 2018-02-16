@@ -21,11 +21,11 @@ class UsersController extends AppController
             {
                 $this->users->update($cook,["password" => sha1($_POST['new_pass'])]);
                 App::getInstance()->getflash()->setFlash('votre mot de passe a été changé','success');
-                header("location:index.php?p=admin.home.index");
+                header("location:?p=admin.home.index");
             }else
             {
                 App::getInstance()->getflash()->setFlash('Ancien mot de passe ivalid','danger');
-                header("location:index.php?p=admin.users.changepass");
+                header("location:?p=admin.users.changepass");
             }
         }
         return $this->render('admin.users.changepass',compact("l"));
@@ -42,11 +42,11 @@ class UsersController extends AppController
             {
                 $this->users->update($cook,["username" => $_POST['new_user']]);
                 App::getInstance()->getflash()->setFlash('votre Nom d\'utilisateur a été changé','success');
-                header("location:index.php?p=admin.home.index");
+                header("location:?p=admin.home.index");
             }else
             {
                 App::getInstance()->getflash()->setFlash('mot de passe invalid','danger');
-                header("location:index.php?p=admin.users.changeusername");
+                header("location:?p=admin.users.changeusername");
             }
         }
         return $this->render('admin.users.changeusername',compact("l"));

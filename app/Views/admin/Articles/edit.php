@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-sm-8 col-10">
          <?= $l->input('titre','Titre'); ?>
-         <?= $l->textarea('contenu','Contenu'); ?>
+         <?= $l->textarea('contenu','Contenu',"tex"); ?>
          <?= $l->select("category_id","Catégorie",$categories); ?>
         <div class="text-right">
             <br>
@@ -15,13 +15,13 @@
     <div class="col-sm-4 col-2">
 
         <label class="custom-file">
-         <input type="file" name="images[]" class="btn btn-outline-primary btn-sm" multiple>
+         <input type="file" name="images[]" class="btn btn-outline-primary btn-sm" multiple  accept=".jpg, .jpeg, .png">
          
         </label>       
         <br><br>
      <?php foreach($images as $image):?>
       <p>
-            <a href="index.php?p=admin.articles.edit&id=<?=$image->articles_id?>&delete_image=<?=$image->id?>"  onclick="return confirm('Voulez Vous Supprimer l\'image ?');"><img src= 'img/articles/<?= $image->name ?>'  width="250"></a>
+            <a href="?p=admin.articles.edit&id=<?=$image->articles_id?>&delete_image=<?=$image->id?>"  onclick="return confirm('Voulez Vous Supprimer l\'image ?');"><img src= 'img/articles/<?= $image->name ?>'  width="250"></a>
       </p>
       
       <?php endforeach; ?>
@@ -35,3 +35,5 @@
 
 
 
+<script src="js/tinymce/tinymce.min.js"></script>
+<script src="js/app.js"></script>

@@ -20,7 +20,7 @@ med\app\App::getInstance()->titre='Accueil';
           <ul class="pagination justify-content-center">
         <?php for($i=0;$i<$nbpage;$i++) :?>
          <li class="page-item">  <a class="page-link" href="
-           <?= isset($_GET['search']) ?'index.php?search='.$_GET['search'].'& n='.$i : 'index.php?p=articles.index&n='.$i ?>
+           <?= isset($_GET['search']) ?'?search='.$_GET['search'].'& n='.$i : '?p=articles.index&n='.$i ?>
            "> <?=$i+1?> </a></li>
         <?php endfor;?>
       </ul>

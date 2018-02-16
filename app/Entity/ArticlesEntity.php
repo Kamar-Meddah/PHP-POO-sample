@@ -12,7 +12,7 @@ class ArticlesEntity extends Entity
     **/
     public function getUrl()
     {
-      return 'index.php?p=articles.show&id='.$this->id;
+      return '?p=articles.show&id='.$this->id;
     }
 
     /**

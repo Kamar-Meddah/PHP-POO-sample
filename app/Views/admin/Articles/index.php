@@ -1,6 +1,6 @@
 <h1><em>Administrer Les Article</em></h1><br>
 
-  <a href="index.php?p=admin.articles.add" class="btn btn-outline-success">Ajouter des nouveau articles</a><br><br>
+  <a href="?p=admin.articles.add" class="btn btn-outline-success">Ajouter des nouveau articles</a><br><br>
 <div class="table-responsive">
  
    <table class="table table-hover table-bordered">
@@ -23,8 +23,8 @@
               <td><?= $article->categorie ?></td>
               <td><?= $article->titre ?></td>
               <td class="text-center">
-                <a href="index.php?p=admin.articles.edit&id=<?= $article->id ?>" class="btn btn-outline-warning">Editer</a>
-               <form method="post" action="index.php?p=admin.articles.delete"  style="display:inline-block" onclick="return confirm('Voulez Vous Supprimer l\'article ?');">
+                <a href="?p=admin.articles.edit&id=<?= $article->id ?>" class="btn btn-outline-warning">Editer</a>
+               <form method="post" action="?p=admin.articles.delete"  style="display:inline-block" onclick="return confirm('Voulez Vous Supprimer l\'article ?');">
                  <input type="hidden" name="id" value="<?= $article->id ?>">
                  <button type="submit" class="btn btn-outline-danger">Supprimer</button>
                </form>
@@ -40,7 +40,7 @@
        <ul class="pagination justify-content-center">
          
         <?php for($i=0;$i<$nbpage;$i++) :?>
-           <li class="page-item"><a  class="page-link" href="index.php?p=admin.articles.index&n=<?=$i;?>"> <?=$i+1?> </a></li>
+           <li class="page-item"><a  class="page-link" href="?p=admin.articles.index&n=<?=$i;?>"> <?=$i+1?> </a></li>
         <?php endfor;?>
        </ul>
 

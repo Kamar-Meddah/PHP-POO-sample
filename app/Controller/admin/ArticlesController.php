@@ -53,7 +53,7 @@ class ArticlesController extends AppController
                  $this->images->create(["articles_id" => $articleid]);
                  $image_id=App::getInstance()->getdb()->lastInsertId();
                  $image_name=$image_id.'.'.$extension;
-                 move_uploaded_file($image['tmp_name'],ROOT.'img/articles/'.$image_name);
+                 move_uploaded_file($image['tmp_name'],ROOT.'/public/img/articles/'.$image_name);
                  $this->images->update($image_id,["name" => $image_name]);
               }
            }
@@ -61,7 +61,7 @@ class ArticlesController extends AppController
             if($result)
             {
                 App::getInstance()->getflash()->setFlash('Votre articles a été ajouté','success');
-                header("location:index.php?p=admin.articles.edit&id=".$articleid);
+                header("location:?p=admin.articles.edit&id=".$articleid);
             }
         }
         $categories=$this->categories->extract("id","titre");
@@ -105,7 +105,7 @@ class ArticlesController extends AppController
                  $this->images->create(["articles_id" => $_GET['id']]);
                  $image_id=App::getInstance()->getdb()->lastInsertId();
                  $image_name=$image_id.'.'.$extension;
-                 move_uploaded_file($image['tmp_name'],ROOT.'img/articles/'.$image_name);
+                 move_uploaded_file($image['tmp_name'],ROOT.'public/img/articles/'.$image_name);
                  $this->images->update($image_id,["name" => $image_name]);
               }
            }
@@ -114,7 +114,7 @@ class ArticlesController extends AppController
         if($result)
         {
             App::getInstance()->getflash()->setFlash('Votre articles a été mise a jour','success');
-            header("location:index.php?p=admin.articles.edit&id=".$_GET['id']);
+            header("location:?p=admin.articles.edit&id=".$_GET['id']);
         }
         }
           //On recupere la liste des images
@@ -125,10 +125,10 @@ class ArticlesController extends AppController
            if(isset($_GET['delete_image']))
            {
             $image=$this->images->findid($_GET['delete_image']);
-            unlink(ROOT.'img/articles/'.$image->name);
+            unlink(ROOT.'public/img/articles/'.$image->name);
             $this->images->delete($_GET['delete_image']);
             App::getInstance()->getflash()->setFlash("L'image a bien été supprimée","danger");
-            header("location:index.php?p=admin.articles.edit&id=".$_GET['id']);
+            header("location:?p=admin.articles.edit&id=".$_GET['id']);
             }
           //end delete
         $categories=$this->categories->extract("id","titre");
@@ -145,7 +145,7 @@ class ArticlesController extends AppController
            $comments=$this->comments->find($_POST['id']);
            foreach ($images as $image)
            {
-           unlink(ROOT.'img/articles/'.$image->name);
+           unlink(ROOT.'public/img/articles/'.$image->name);
            }
            foreach ($comments as $comment)
            {
@@ -154,7 +154,7 @@ class ArticlesController extends AppController
            $image=$this->images->deleteWithArticle($_POST['id']);
            $result= $this->articles->delete($_POST['id']);
            App::getInstance()->getflash()->setFlash('Votre Article a été Supprimer','danger');
-           header("location:index.php?p=admin.articles.index");
+           header("location:?p=admin.articles.index");
         }
     }
 

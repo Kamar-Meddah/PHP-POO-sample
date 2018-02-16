@@ -5,7 +5,7 @@ use \med\core\Auth\DBAuth;
 
 class AppController extends \med\app\Controller\AppController
 {
-    protected $template="admin.default";
+    protected $template="default";
 
     public function __construct()
     {

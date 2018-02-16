@@ -1,0 +1,91 @@
+:root {
+    --primary: darkcyan;
+    --width: 250;
+}
+
+.outline-blue {
+    border-color: var(--primary);
+    background-color: transparent;
+}
+
+.outline-blue:hover,
+.outline-blue:focus {
+    background-color: var(--primary);
+    color: white;
+}
+
+
+a,
+.blue {
+    color: var(--primary);
+}
+
+
+/* the search button*/
+
+.admin button {
+    background-color: var(--primary);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+hr {
+    border-color: white;
+}
+
+
+/* the search input */
+
+#search {
+    width: 100px;
+    height: 2.4em;
+    transition: width 0.5s;
+}
+
+#search:hover {
+    width: calc(var(--width) * 1px);
+    transition: width 0.5s;
+}
+
+#button {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.control {
+    border-radius: 0.3em;
+}
+
+.control:focus:valid {
+    border-color: green;
+}
+
+.control:focus:invalid {
+    border-color: red;
+}
+
+.btn,
+.btn:active,
+.btn:focus,
+.alert,
+.page-link,
+img,
+thead,
+select,
+.control {
+    box-shadow: 2px 3px 3px 2px black;
+}
+
+
+/*remove style from the search icon*/
+
+.admin img {
+    box-shadow: 0px 0px 0px 0px;
+    border: 0px;
+}
+
+img,
+.control {
+    border: 3px solid var(--primary);
+}

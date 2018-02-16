@@ -18,7 +18,7 @@
         <br>
       <ul class="pagination justify-content-center">
         <?php for($i=0;$i<$nbpage;$i++) :?>
-          <li class="page-item">  <a class="page-link"  href="index.php?p=articles.categories&id=<?=$categorie->id?>&n=<?=$i?>"> <?=$i+1?> </a></li>
+          <li class="page-item">  <a class="page-link"  href="?p=articles.categories&id=<?=$categorie->id?>&n=<?=$i?>"> <?=$i+1?> </a></li>
         <?php endfor;?>
         </ul>
       

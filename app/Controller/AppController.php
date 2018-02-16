@@ -24,4 +24,11 @@ class AppController extends Controller
         return $this->render('articles.error');
 
     }
+
+    public function Forbidden()
+    {
+        echo "Error http/1.1 403 unauthorized";
+        die();
+
+    }
 }

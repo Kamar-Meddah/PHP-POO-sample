@@ -47,36 +47,27 @@
 
 <div class='col-sm-6 col-6'>orderBy :</div>
   
-<div class="col-sm-2 col-4">
-<select ng-model='select'>
-   <option value="+date">oldest</option>   
-   <option value="-date" selected>newest</option>   
-</select>
-</div>
 </div>
 
 <br>
+        <?php foreach ($comments as $comment) :?>
+           <b><?=$comment->name?>:</b>
+            <div class="col">
+                <div class="row">
+                    <div class="col-sm-6 col-6"><?=$comment->content?></div>
 
-    <div ng-init='users=<?=$com?>'>
-        <div ng-repeat='user in users|orderBy:select'>
-           <b>{{user.name}}:</b>
-  <div class="col">
-  <div class="row">
-      <div class="col-sm-6 col-6">
-      {{user.content}}
-</div>
-
-   <div class="col-sm-2 col-2">
-   <?php if(isset($_COOKIE['auth'])) :?>
-    <form method="post" action="#" onclick="return confirm('Voulez Vous Supprimer le commentaire ?');">
-    <input type="hidden" name="delete_comment" value="{{user.id}}">
-    <button type="submit" class="btn btn-sm btn-outline-danger">Supprimer</button>
-    </form>
-     <?php endif;?>
-   </div>
+                <div class="col-sm-2 col-2">
+                    <?php if(isset($_COOKIE['auth'])) :?>
+                        <form method="post" action="#" onclick="return confirm('Voulez Vous Supprimer le commentaire ?');">
+                            <input type="hidden" name="delete_comment" value="<?=$comment->id?>">
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Supprimer</button>
+                        </form>
+                    <?php endif;?>
+                </div>
+            </div>
+        <?php endforeach;?>
+        <br>
+ 
 </div>
 </div>
-<br>
- </div>
-   </div>
-</div>
+<script src="js/lightbox.min.js" ></script>

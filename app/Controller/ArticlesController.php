@@ -74,18 +74,17 @@ class ArticlesController extends AppController
                                       "articles_id"=>$_GET['id']
                                       ]);
         App::getInstance()->getflash()->setFlash("Votre Commentaire a bien été poster","success");
-        header("location:index.php?p=articles.show&id=".$_GET['id']);
+        header("location:?p=articles.show&id=".$_GET['id']);
         }
         $comments=$this->comments->find($_GET['id']);
-        $com=json_encode($comments);
         //suppression du comments
         if(isset($_POST['delete_comment']))
         {
             $this->comments->delete($_POST['delete_comment']);
             App::getInstance()->getflash()->setFlash("Le commentaire a bien été supprimer","success");
-            header("location:index.php?p=articles.show&id=".$_GET['id']);
+            header("location:?p=articles.show&id=".$_GET['id']);
         }
-        return $this->render('articles.show',compact("post","images","comments",'l',"com"));
+        return $this->render('articles.show',compact("post","images","comments",'l',"comments"));
         }else{$this->NotFound();}
     }
 

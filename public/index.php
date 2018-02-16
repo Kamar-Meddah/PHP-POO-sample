@@ -1,5 +1,5 @@
 <?php
-define('ROOT',__DIR__.'/');
+define('ROOT','../',__DIR__.'/');
 session_start();
 require ROOT."core/Autoloader.php";
 \med\Autoloader::register();
